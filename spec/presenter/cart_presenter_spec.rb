@@ -7,7 +7,7 @@ require_relative '../../presenters/cart_presenter'
 
 RSpec.describe CartPresenter do
   describe '#line_items' do
-    it "returns the line items formatted" do
+    it 'returns the line items formatted' do
       data = [
         { product: Product.new(imported: true, name: 'one'), quantity: 1, total: 1.11 },
         { product: Product.new(imported: false, name: 'two'), quantity: 2, total: 2.22 },
@@ -16,16 +16,16 @@ RSpec.describe CartPresenter do
 
       expect(CartPresenter.new(data).line_items).to eq(
         [
-          "1 imported one: 1.11",
-          "2 two: 2.22",
-          "3 imported three: 3.33",
+          '1 imported one: 1.11',
+          '2 two: 2.22',
+          '3 imported three: 3.33',
         ]
       )
     end
   end
 
   describe '#taxes' do
-    it "returns the sum of all products taxes" do
+    it 'returns the sum of all products taxes' do
       data = [{ taxes: 1.11 }, { taxes: 2.22 }, { taxes: 3.33 }]
 
       expect(CartPresenter.new(data).taxes).to eq('6.66')
@@ -33,7 +33,7 @@ RSpec.describe CartPresenter do
   end
 
   describe '#total' do
-    it "returns the sum of all products total" do
+    it 'returns the sum of all products total' do
       data = [{ total: 1.11 }, { total: 2.22 }, { total: 3.33 }]
 
       expect(CartPresenter.new(data).total).to eq('6.66')

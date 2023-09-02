@@ -14,29 +14,29 @@ RSpec.describe ProductBuilder, '.call' do
     expect(product.kind).to eq('book')
   end
 
-  it 'identifies nothing' do
-    product = ProductBuilder.call({ name: 'music CD' })
-
-    expect(product.name).to eq('music CD')
-    expect(product.kind).to be(nil)
-  end
-
   it 'identifies food' do
     product = ProductBuilder.call({ name: 'chocolate bar' })
 
     expect(product.name).to eq('chocolate bar')
     expect(product.kind).to eq('food')
-  end
 
-
-  it 'identifies food' do
     product = ProductBuilder.call({ name: 'box of chocolates' })
 
     expect(product.name).to eq('box of chocolates')
     expect(product.kind).to eq('food')
+
+    product = ProductBuilder.call({ name: 'boxes of chocolates' })
+
+    expect(product.name).to eq('boxes of chocolates')
+    expect(product.kind).to eq('food')
   end
 
   it 'identifies nothing' do
+    product = ProductBuilder.call({ name: 'music CD' })
+
+    expect(product.name).to eq('music CD')
+    expect(product.kind).to be(nil)
+
     product = ProductBuilder.call({ name: 'bottle of perfume' })
 
     expect(product.name).to eq('bottle of perfume')
@@ -50,17 +50,10 @@ RSpec.describe ProductBuilder, '.call' do
     expect(product.kind).to eq('medical')
   end
 
-  it 'identifies food' do
-    product = ProductBuilder.call({ name: 'boxes of chocolates' })
-
-    expect(product.name).to eq('boxes of chocolates')
-    expect(product.kind).to eq('food')
-  end
-
   it 'sets the imported attribute' do
     product = ProductBuilder.call({ imported: true, name: 'any' })
 
-    expect(product.imported).to eq(true)
+    expect(product.imported).to be(true)
   end
 
   it 'sets the price attribute' do

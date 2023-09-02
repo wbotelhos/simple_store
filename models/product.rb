@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
+# The Product model.
 class Product
   attr_accessor :imported, :kind, :name, :price
 
   def initialize(attributes = {})
-    @name = attributes[:name]
-    @kind = attributes[:kind]
     @imported = attributes.fetch(:imported, false)
+    @kind = attributes[:kind]
+    @name = attributes[:name]
     @price = attributes[:price]
   end
 

@@ -2,6 +2,8 @@
 
 require_relative '../presenters/cart_presenter'
 
+# Module responsible to return the cart output.
+# Fill free to replace this module to any other one to have different response, like a CartJsonResponse.
 module CartResponse
   module_function
 

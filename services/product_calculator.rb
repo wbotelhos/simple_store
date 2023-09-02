@@ -5,6 +5,7 @@ require_relative 'import_tax_calculator'
 require_relative 'price_rounder'
 require_relative 'product_builder'
 
+# Module resopnsible to calculate the taxes and the total for each product.
 module ProductCalculator
   module_function
 
@@ -15,7 +16,7 @@ module ProductCalculator
 
     quantity = data[:quantity]
     taxes = quantity * PriceRounder.call(basic_tax + import_tax)
-    total = quantity * product.price + taxes
+    total = (quantity * product.price) + taxes
 
     {
       product: product,

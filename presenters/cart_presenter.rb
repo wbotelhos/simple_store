@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Class responsible to format the cart data to be presented to the final user.
 class CartPresenter
   def initialize(data)
     @data = data
@@ -31,6 +32,6 @@ class CartPresenter
   attr_reader :data
 
   def format_number(number)
-    format("%.2f", number)
+    format('%.2f', number)
   end
 end

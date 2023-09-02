@@ -10,7 +10,7 @@ RSpec.describe ProductCalculator, '.call' do
       quantity: 3,
       imported: true,
       name: 'boxes of chocolates',
-      price: 11.25
+      price: 11.25,
     }
 
     result = ProductCalculator.call(data)

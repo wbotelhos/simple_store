@@ -2,6 +2,8 @@
 
 require_relative '../models/product'
 
+# Module responsible to discover the kind of each product.
+# It can be book, food or medical product.
 module ProductBuilder
   module_function
 
@@ -20,8 +22,8 @@ module ProductBuilder
     pills
   ].freeze
 
-  def call(line)
-    case line[:name]
+  def call(data)
+    case data[:name]
     when /#{BOOKS.join('|')}/
       kind = 'book'
     when /#{FOODS.join('|')}/
@@ -31,10 +33,10 @@ module ProductBuilder
     end
 
     Product.new(
-      imported: line[:imported],
+      imported: data[:imported],
       kind: kind,
-      name: line[:name],
-      price: line[:price],
+      name: data[:name],
+      price: data[:price]
     )
   end
 end

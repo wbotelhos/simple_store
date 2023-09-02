@@ -1,5 +1,6 @@
 # frozen_string_literal: true
 
+# Module responsible to calculate the basic product tax.
 module BasicTaxCalculator
   module_function
 
