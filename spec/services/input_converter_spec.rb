@@ -17,9 +17,9 @@ RSpec.describe InputConverter, '.call' do
 
     expect(result).to eq(
       [
-        { imported: false, product: 'bottle of perfume', quantity: 1, price: 18.99 },
-        { imported: false, product: 'packet of headache pills', quantity: 1, price: 9.75 },
-        { imported: true, product: 'boxes of chocolates', quantity: 3, price: 11.25 },
+        { imported: false, name: 'bottle of perfume', quantity: 1, price: 18.99 },
+        { imported: false, name: 'packet of headache pills', quantity: 1, price: 9.75 },
+        { imported: true, name: 'boxes of chocolates', quantity: 3, price: 11.25 },
       ]
     )
   end
@@ -35,9 +35,9 @@ RSpec.describe InputConverter, '.call' do
 
     expect(result).to eq(
       [
-        { imported: false, product: 'bottle of perfume', quantity: 1, price: 18.99 },
-        { imported: false, product: 'packet of headache pills', quantity: 1, price: 9.75 },
-        { imported: true, product: 'boxes of chocolates', quantity: 3, price: 11.25 },
+        { imported: false, name: 'bottle of perfume', quantity: 1, price: 18.99 },
+        { imported: false, name: 'packet of headache pills', quantity: 1, price: 9.75 },
+        { imported: true, name: 'boxes of chocolates', quantity: 3, price: 11.25 },
       ]
     )
   end
