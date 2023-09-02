@@ -4,10 +4,10 @@ class Product
   attr_accessor :imported, :kind, :name, :price
 
   def initialize(attributes = {})
-    @name = attributes.fetch(:name)
+    @name = attributes[:name]
     @kind = attributes[:kind]
     @imported = attributes.fetch(:imported, false)
-    @price = attributes.fetch(:price)
+    @price = attributes[:price]
   end
 
   def book?

@@ -6,12 +6,12 @@ module LineConverter
   def call(line)
     match = line.match(/\A(\d)\s(imported\s)?(.+)\sat\s(\d+\.\d+)\z/)
 
-    quantity, imported, product, price = match.captures
+    quantity, imported, name, price = match.captures
 
     {
       quantity: quantity.to_i,
       imported: !imported.nil?,
-      product: product,
+      name: name,
       price: price.to_f
     }
   end

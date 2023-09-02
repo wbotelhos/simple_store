@@ -11,7 +11,7 @@ RSpec.describe LineConverter, '.call' do
 
     result = LineConverter.call(input)
 
-    expect(result).to eq(imported: false, product: 'book', quantity: 2, price: 12.49)
+    expect(result).to eq(imported: false, name: 'book', price: 12.49, quantity: 2)
   end
 
   it 'converts a product with more than one word name' do
@@ -19,7 +19,7 @@ RSpec.describe LineConverter, '.call' do
 
     result = LineConverter.call(input)
 
-    expect(result).to eq(imported: false, product: 'chocolate bar', quantity: 1, price: 0.85)
+    expect(result).to eq(imported: false, name: 'chocolate bar', price: 0.85, quantity: 1)
   end
 
   it 'converts imported product' do
@@ -27,6 +27,6 @@ RSpec.describe LineConverter, '.call' do
 
     result = LineConverter.call(input)
 
-    expect(result).to eq(imported: true, product: 'boxes of chocolates', quantity: 3, price: 11.25)
+    expect(result).to eq(imported: true, name: 'boxes of chocolates', price: 11.25, quantity: 3)
   end
 end

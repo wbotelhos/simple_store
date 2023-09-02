@@ -3,8 +3,8 @@
 require 'pry-byebug'
 require 'rspec'
 
-require_relative '../../services/product_builder'
 require_relative '../../models/product'
+require_relative '../../services/product_builder'
 
 RSpec.describe ProductBuilder, '.call' do
   it 'identifies book' do
@@ -55,5 +55,17 @@ RSpec.describe ProductBuilder, '.call' do
 
     expect(product.name).to eq('boxes of chocolates')
     expect(product.kind).to eq('food')
+  end
+
+  it 'sets the imported attribute' do
+    product = ProductBuilder.call({ imported: true, name: 'any' })
+
+    expect(product.imported).to eq(true)
+  end
+
+  it 'sets the price attribute' do
+    product = ProductBuilder.call({ name: 'any', price: 10.42 })
+
+    expect(product.price).to be(10.42)
   end
 end

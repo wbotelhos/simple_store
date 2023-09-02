@@ -28,6 +28,11 @@ module ProductBuilder
       kind = 'medical'
     end
 
-    Product.new(name: line[:name], kind: kind)
+    Product.new(
+      imported: line[:imported],
+      kind: kind,
+      name: line[:name],
+      price: line[:price],
+    )
   end
 end
